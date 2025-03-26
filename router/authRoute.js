@@ -1,7 +1,8 @@
 import express from "express";
 import passport from "../config/passport.js";
-import jwt from "jsonwebtoken";
 import { verifyGoogleToken } from "../controllers/authController.js";
+import { githubAuthCallback } from "../controllers/githubAuth.js";
+
 
 const router = express.Router();
 
@@ -30,19 +31,7 @@ router.get(
   }
 );
 
-router.get(
-  "/github/callback",
-  passport.authenticate("github", { failureRedirect: "/login", session: false }),
-  (req, res) => {
-    if (!req.user || !req.user.token) {
-      return res.redirect("https://taskly-frontend-psi.vercel.app/login?error=OAuth failed");
-    }
-
-    // ✅ Redirect to homepage instead of dashboard
-    res.redirect(`https://taskly-frontend-psi.vercel.app/?token=${encodeURIComponent(req.user.token)}`);
-  }
-);
-
+router.get("/github/callback", githubAuthCallback);
 
 router.post("/google-verify", verifyGoogleToken);
 

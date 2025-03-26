@@ -6,6 +6,8 @@ import signupRouter from './router/signupRoute.js';
 import loginRouter from './router/loginRoute.js';
 import homeRouter from './router/homeRoute.js';
 import authRouter from "./router/authRoute.js";
+import githubRoutes from "./router/authRoute.js";
+
 
 dotenv.config();
 connectDB();
