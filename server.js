@@ -13,7 +13,7 @@ const app = express();
 
 app.use(
     cors({
-      origin: "https://taskly-frontend-psi.vercel.app", // ✅ Ensure no trailing slash
+      origin: ['http://localhost:5173', 'https://taskly-frontend-psi.vercel.app'], // ✅ Ensure no trailing slash
       credentials: true,
       methods: ["GET", "POST", "PUT", "DELETE"],
       allowedHeaders: ["Content-Type", "Authorization"],
