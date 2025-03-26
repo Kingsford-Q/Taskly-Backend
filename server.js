@@ -5,6 +5,7 @@ import connectDB from './config/db.js';
 import signupRouter from './router/signupRoute.js';
 import loginRouter from './router/loginRoute.js';
 import homeRouter from './router/homeRoute.js';
+import authRouter from "./router/authRoute.js";
 
 dotenv.config();
 connectDB();
@@ -25,6 +26,15 @@ app.use(express.json());
 app.use('/api', signupRouter);
 app.use('/api', loginRouter);
 app.use('/', homeRouter);
+app.use("/api/auth", authRouter);
+
+app.use((req, res, next) => {
+  res.setHeader("Cross-Origin-Opener-Policy", "same-origin-allow-popups");
+  res.setHeader("Cross-Origin-Embedder-Policy", "require-corp");
+  next();
+});
+
+
 
 const PORT = process.env.PORT || 5000;
 
