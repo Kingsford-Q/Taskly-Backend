@@ -11,7 +11,15 @@ connectDB();
 
 const app = express();
 
-app.use(cors({origin: 'https://taskly-frontend-psi.vercel.app/', credentials: true }));
+app.use(
+    cors({
+      origin: "https://taskly-frontend-psi.vercel.app", // ✅ Ensure no trailing slash
+      credentials: true,
+      methods: ["GET", "POST", "PUT", "DELETE"],
+      allowedHeaders: ["Content-Type", "Authorization"],
+    })
+  );
+  
 app.use(express.json());
 
 app.use('/api', signupRouter);
