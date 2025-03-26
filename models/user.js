@@ -7,7 +7,7 @@ const UserSchema = new mongoose.Schema({
     password: {type:String, required:true}
 },
 {
-    collection: 'taskmanager',
+    collection: 'user',
     timestamps:true
 }
 )
