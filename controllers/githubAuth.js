@@ -24,13 +24,12 @@ export const githubAuthCallback = async (req, res) => {
       { headers: { Accept: "application/json" } }
     );
 
-    console.log("GitHub Token Response Data:", tokenResponse.data);
+    console.log("GitHub Token Response:", tokenResponse.data); // 🔍 Debugging
 
     const accessToken = tokenResponse.data.access_token;
-
     if (!accessToken) {
       console.error("GitHub OAuth Error: No access token received", tokenResponse.data);
-      return res.status(400).json({ error: "GitHub authentication failed: No access token" });
+      return res.status(400).json({ error: "GitHub authentication failed: No access token", details: tokenResponse.data });
     }
 
     console.log("GitHub OAuth: Retrieved Access Token ->", accessToken);
