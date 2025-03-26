@@ -11,6 +11,7 @@ export const githubAuthCallback = async (req, res) => {
   }
 
   try {
+    console.log("GitHub OAuth Code Received:", req.query.code);
     console.log("GitHub OAuth: Received code ->", code);
 
     // Exchange code for GitHub access token
