@@ -4,6 +4,7 @@ import cors from 'cors';
 import connectDB from './config/db.js';
 import signupRouter from './router/signupRoute.js';
 import loginRouter from './router/loginRoute.js';
+import homeRouter from './router/homeRoute.js';
 
 dotenv.config();
 connectDB();
@@ -15,6 +16,7 @@ app.use(express.json());
 
 app.use('/api', signupRouter);
 app.use('/api', loginRouter);
+app.use('/', homeRouter);
 
 const PORT = process.env.PORT || 5000;
 
