@@ -31,7 +31,7 @@ router.get(
   }
 );
 
-router.get("/github/callback", githubAuthCallback);
+router.post("/github/callback", githubAuthCallback);
 
 router.post("/google-verify", verifyGoogleToken);
 
