@@ -16,11 +16,11 @@ export const githubAuthCallback = async (req, res) => {
     // Exchange code for GitHub access token
     const tokenResponse = await axios.post(
       "https://github.com/login/oauth/access_token",
-      {
+      new URLSearchParams({
         client_id: process.env.GITHUB_CLIENT_ID,
         client_secret: process.env.GITHUB_CLIENT_SECRET,
         code,
-      },
+      }),
       { headers: { Accept: "application/json" } }
     );
 
