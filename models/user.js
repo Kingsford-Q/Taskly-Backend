@@ -19,8 +19,6 @@ const UserSchema = new mongoose.Schema(
   }
 );
 
-UserSchema.index({ googleId: 1 }, { sparse: true });
-
 
 // 🔐 **Hash password before saving (if password exists)**
 UserSchema.pre('save', async function (next) {
