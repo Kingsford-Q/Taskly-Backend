@@ -3,7 +3,7 @@ import bcrypt from 'bcryptjs';
 
 const UserSchema = new mongoose.Schema(
   {
-    googleId: { type: String, default: null, sparse: true }, // 🔹 Optional & sparse index
+    googleId: { type: String, default: null, sparse: true }, // 🔹 Optional & sparse indexxxx
     githubId: { type: String, unique: true, sparse: true }, // 🔹 Added GitHub ID, also optional
     name: { type: String, required: true },
     email: { type: String, required: true, unique: true },
