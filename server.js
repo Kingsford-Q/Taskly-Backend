@@ -31,6 +31,7 @@ app.use("/api/auth", authRouter);
 app.use((req, res, next) => {
   res.setHeader("Cross-Origin-Opener-Policy", "same-origin-allow-popups");
   res.setHeader("Cross-Origin-Embedder-Policy", "require-corp");
+  console.log(`Incoming Request: ${req.method} ${req.url}`);
   next();
 });
 
